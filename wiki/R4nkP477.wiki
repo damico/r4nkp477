@@ -9,7 +9,7 @@ R4nkP477 Pattern finder for Ranking Data. It is based on Euclidean Distance Scor
 
 = Details =
 
-R4nkP477 was designed to be an open-source library to be used for similarities recognition into ranking's data.  
+R4nkP477 was designed to be an open-source library to be used for similarities recognition into ranking's data. It also works for form's data analysis.  
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_

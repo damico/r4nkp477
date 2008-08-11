@@ -1,0 +1,17 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+This is the Wiki of R4nkP477 (a.k.a. RankPatt)
+
+R4nkP477 Pattern finder for Ranking Data. It is based on Euclidean Distance Score
+
+
+= Details =
+
+R4nkP477 was designed to be a open-source library to be used for similarities recognition into ranking's data.  
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages

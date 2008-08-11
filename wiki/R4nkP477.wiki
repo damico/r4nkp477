@@ -7,7 +7,7 @@
 This is the Wiki of R4nkP477 (a.k.a. RankPatt)
 
 R4nkP477: Pattern finder for Ranking Data. It is based on Euclidean Distance Score. 
-Developed by Jose Damico (jd.comment@gmail.com)
+Developed by _Jose Damico (jd.comment@gmail.com)_
 
 
 = Details =

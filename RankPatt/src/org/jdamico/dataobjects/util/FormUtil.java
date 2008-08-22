@@ -76,7 +76,7 @@ public class FormUtil {
 	
 	public Map<Integer, AxisObj> distribute(Map<Integer, Integer> rankMap) throws RankPattException{
 		
-		System.err.println("rankMap.size() => "+rankMap.size());
+		//System.err.println("rankMap.size() => "+rankMap.size());
 		
 		AxisObj axis = null;
 		
@@ -106,7 +106,7 @@ public class FormUtil {
 					axis.setY(Integer.parseInt(tmpKey.substring(1)));
 					pos.put(count, axis);
 					posTmp.put(tmpKey,count);
-					System.out.println("tmpKey => "+tmpKey.substring(0,1)+" : "+tmpKey.substring(1));
+					//System.out.println("tmpKey => "+tmpKey.substring(0,1)+" : "+tmpKey.substring(1));
 					count++;
 				}
 				
@@ -114,7 +114,7 @@ public class FormUtil {
 			
 		}
 		
-		System.err.println("dis size => "+count);
+		//System.err.println("dis size => "+count);
 		
 		return pos;
 	}

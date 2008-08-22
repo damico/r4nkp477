@@ -1,5 +1,6 @@
 package org.jdamico.tests;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,16 +10,15 @@ import org.jdamico.components.FindRankPat;
 import org.jdamico.dataobjects.FormObj;
 import org.jdamico.dataobjects.util.FormUtil;
 
-public class FindSimPatTest extends TestCase {
+public class FindRankPattTest extends TestCase {
 
 	public void testFindSimPat() throws Exception{
 		
 		FindRankPat findSp = new FindRankPat();
-		findSp.process("jose", plotSampleData());
-		/* 
-		 * findSimPat("Jose",formMap)
-		 * */
-		
+		ArrayList<Double> resultArray = findSp.process("jose", plotSampleData());
+		for(int i = 0; i < resultArray.size(); i++){
+			System.out.println("Array position: "+i+" Array value: "+resultArray.get(i));
+		}
 		
 	}
 	

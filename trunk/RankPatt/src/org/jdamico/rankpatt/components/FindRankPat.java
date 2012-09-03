@@ -11,6 +11,7 @@ import org.jdamico.config.Constants;
 import org.jdamico.dataobjects.AxisObj;
 import org.jdamico.dataobjects.FormCoordinates;
 import org.jdamico.dataobjects.FormObj;
+import org.jdamico.dataobjects.SimData;
 import org.jdamico.dataobjects.util.FormUtil;
 import org.jdamico.exceptions.RankPattException;
 
@@ -45,8 +46,8 @@ public class FindRankPat {
 	 * @return ArrayList filled with Euclidean score (double) of each profile ordered by descendant 
 	 * @throws RankPattException if formMap does not contains key idStr
 	 */
-	public ArrayList<Double> process(String idStr, Map<String, FormObj> formMap) throws RankPattException{
-		ArrayList<Double> retArray = null;
+	public ArrayList<SimData> process(String idStr, Map<String, FormObj> formMap) throws RankPattException{
+		ArrayList<SimData> retArray = null;
 		if(formMap.containsKey(idStr)){
 			
 			/* number of lines */
@@ -70,7 +71,7 @@ public class FindRankPat {
 			
 			while(axisIter.hasNext()){
 				
-				axis = axisIter.next();
+				axis = axisIter.next(); 
 				
 				//System.err.println("??? "+axis.getX()+" : "+axis.getY());
 				
@@ -81,9 +82,13 @@ public class FindRankPat {
 				Map<String, FormCoordinates> compAxis = new Hashtable<String, FormCoordinates>();
 
 				int xMain = 0, yMain = 0;
-								
+					
+				System.out.println("Testing: ITEM "+axis.getX()+" vs. ITEM "+axis.getY()+"\n\n");
+				
 				while(iter.hasNext()){
 
+					
+					
 					form = iter.next();
 					rankMap = form.getRankMap();
 					FormCoordinates fc = new FormCoordinates();
@@ -92,9 +97,13 @@ public class FindRankPat {
 					fc.setXValue(rankMap.get( axis.getX() ));
 					fc.setYValue(rankMap.get( axis.getY() ));
 					compAxis.put(form.getFormOwner(), fc);
-					//System.out.println(form.getFormOwner()+": ["+rankMap.get( axis.getX() )+","+rankMap.get( axis.getY() )+"]");
-					
+					System.out.println(form.getFormOwner()+": ["+rankMap.get( axis.getX() )+","+rankMap.get( axis.getY() )+"]");
+
 				}
+				
+				System.out.println();
+				
+				
 					xMain = compAxis.get(idStr).getXValue();
 					yMain = compAxis.get(idStr).getYValue();
 					compAxis.remove(idStr);
@@ -117,13 +126,13 @@ public class FindRankPat {
 						
 						double sum = preValue + euclideanDist;
 						distSum.put(element.getFormOwner(),sum);
-						//System.out.println("   ["+element.getFormOwner()+"] Sum: "+sum+" Distance: "+euclideanDist);
+						System.out.println("["+element.getFormOwner()+"] TotalSum: "+sum+" Distance: "+euclideanDist);
 					}
 				
-				
+					System.out.println("\n========\n");
 			}	
 			
-			retArray =  new ArrayList<Double>();
+			retArray =  new ArrayList<SimData>();
 			int j = 0;
 			
 			ArrayList<Integer> usedArray = new ArrayList<Integer>();
@@ -144,7 +153,7 @@ public class FindRankPat {
 				}
 				distSum.remove(formOwners[maxPos]);
 				usedArray.add(maxPos);
-				retArray.add(j, max);
+				retArray.add(j, new SimData(max, formOwners[maxPos], -1l));
 				j++;
 
 			}
